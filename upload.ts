@@ -8,8 +8,8 @@ async function readConfig() {
     const url2 = url?.split("=")[1].trim().split("/")
     if (!url2)
         throw ("error")
-    const usuario = encodeURIComponent(url2[0])
-    const repo = encodeURIComponent(url2[1])
+    const usuario = encodeURIComponent(url2.slice(-2, -1).toString())
+    const repo = encodeURIComponent(url2.slice( -1).toString())
     return { usuario, repo }
 }
 const {usuario, repo} = await readConfig()
